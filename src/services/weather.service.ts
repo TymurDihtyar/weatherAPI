@@ -10,8 +10,6 @@ class WeatherService {
 
     return new Promise((resolve, reject) => {
       https.get(url, (res) => {
-        console.log("statusCode:", res.statusCode);
-
         res
           .on("data", (data) => {
             resolve(JSON.parse(data));
