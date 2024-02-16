@@ -5,6 +5,6 @@ import { paramsMiddleware } from "../middlewares/params.middleware";
 
 const router = Router();
 
-router.get("/", paramsMiddleware.checkParams, weatherController.getWeather);
+router.get("", paramsMiddleware.checkParams, weatherController.getWeather);
 
 export const weatherRouter = router;

@@ -7,8 +7,8 @@ class ParamsMiddleware {
     try {
       const param = req.query;
 
-      if (!param) {
-        throw new ApiError("wrong params", 400);
+      if (!Object.keys(param).length) {
+        throw new ApiError("Nothing params", 400);
       }
 
       res.locals = param;
