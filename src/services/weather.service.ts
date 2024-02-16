@@ -1,6 +1,7 @@
 import https from "node:https";
 
 import { configs } from "../configs/config";
+import { ApiError } from "../errors/api.error";
 import { IParams } from "../interfaces/params.interface";
 
 class WeatherService {
@@ -11,6 +12,8 @@ class WeatherService {
       url += `&q=${params.city}`;
     } else if (params.lat && params.lon) {
       url += `&lat=${params.lat}&lon=${params.lon}`;
+    } else {
+      throw new ApiError("Not enough parameters to search", 400);
     }
 
     return new Promise((resolve, reject) => {
