@@ -1,7 +1,15 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
-import { baseURL } from "../constants/urls";
+import { configs } from "../configs/config";
+import { ICity } from "../interfaces/city.interface";
+import { IWeatherData } from "../interfaces/weatherData.interface";
 
-const axiosService = axios.create({ baseURL });
+const geoUrl = `${configs.BASE_URL}${configs.BASE_URL_GEO}`;
+const dataUrl = `${configs.BASE_URL}${configs.BASE_URL_DATA}`;
+
+const axiosService = {
+  getCityData: (q: string, appid: string): Promise<AxiosResponse<ICity>> => axios.get(geoUrl, { params: { q, appid } }),
+  getWeather: (lat: number, lon: number, appid: string): Promise<AxiosResponse<IWeatherData>> => axios.get(dataUrl, { params: { lat, lon, appid } }),
+};
 
 export { axiosService };
