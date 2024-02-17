@@ -1,4 +1,6 @@
-const baseURL = "https://api.openweathermap.org";
+import { configs } from "../configs/config";
+
+const baseURL = configs.BASE_URL;
 const data = "/data/2.5/weather";
 const geo = "/geo/1.0/direct";
 
