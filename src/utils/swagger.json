@@ -17,19 +17,19 @@
             "required": false,
             "type": "string"
           },
-                    {
+          {
             "name": "lon",
             "in": "query",
             "description": "geographic coordinate longitude",
             "required": false,
-            "type": "number"
+            "type": "string"
           },
           {
             "name": "lat",
             "in": "query",
             "description": "geographic coordinate latitude",
             "required": false,
-            "type": "number"
+            "type": "string"
           }
         ],
         "responses": {
@@ -40,15 +40,10 @@
             }
           },
           "400": {
-            "description": "bad request",
-            "schema": {
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "example": "Invalid request, Write city name or Longitude with Latitude"
-                }
-              }
-            }
+            "description": "Bad query params"
+          },
+          "500": {
+            "description": "Server error"
           }
         }
       }

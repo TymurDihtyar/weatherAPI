@@ -1,5 +1,4 @@
 import { configs } from "../configs/config";
-import { ApiError } from "../errors/api.error";
 import { IQuery } from "../interfaces/query.interface";
 import { IWeatherData } from "../interfaces/weatherData.interface";
 import { axiosService } from "./axios.service";
@@ -16,7 +15,6 @@ class WeatherService {
       const responseData = await axiosService.getWeather(params.lat, params.lon, configs.API_KEY);
       return responseData.data;
     }
-    throw new ApiError("Not enough params for search", 400);
   }
 }
 
