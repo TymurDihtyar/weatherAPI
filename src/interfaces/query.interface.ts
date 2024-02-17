@@ -1,7 +1,7 @@
 export interface IQuery {
   city?: string;
-  lat?: string;
-  lon?: string;
+  lat?: number;
+  lon?: number;
 
   [key: string]: string | number;
 }
