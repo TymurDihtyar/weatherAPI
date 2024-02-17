@@ -15,7 +15,7 @@ class WeatherService {
       throw new ApiError("Wrong city name", 400);
     }
     if (params.lon && params.lat) {
-      return this.getResponseData(params.lat, params.lon, configs.API_KEY, configs.TYPE_DATA);
+      return this.getResponseData(+params.lat, +params.lon, configs.API_KEY, configs.TYPE_DATA);
     }
   }
 
