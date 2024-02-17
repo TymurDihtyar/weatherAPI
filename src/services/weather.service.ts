@@ -8,11 +8,11 @@ class WeatherService {
     if (params.city) {
       const responseCity = await axiosService.getCityGeo(params.city, configs.API_KEY);
       const { lat, lon } = responseCity.data[0];
-      const responseData = await axiosService.getWeather(lat, lon, configs.API_KEY);
+      const responseData = await axiosService.getWeather(lat, lon, configs.API_KEY, configs.TYPE_DATA);
       return responseData.data;
     }
     if (params.lon && params.lat) {
-      const responseData = await axiosService.getWeather(params.lat, params.lon, configs.API_KEY);
+      const responseData = await axiosService.getWeather(params.lat, params.lon, configs.API_KEY, configs.TYPE_DATA);
       return responseData.data;
     }
   }
