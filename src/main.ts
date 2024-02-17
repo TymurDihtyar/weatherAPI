@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/weather", weatherRouter);
 app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use("*", (err: ApiError, req: Request, res: Response, next: NextFunction) => {
   return res.status(err?.status || 500).json({
     message: err?.message,
@@ -22,5 +23,5 @@ app.use("*", (err: ApiError, req: Request, res: Response, next: NextFunction) =>
 
 const PORT = configs.PORT;
 app.listen(PORT, async () => {
-  console.log(`Сервер слухає на порту ${PORT}`);
+  console.log(`Server start on port ${PORT}`);
 });
