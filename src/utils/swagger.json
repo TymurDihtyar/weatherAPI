@@ -1,0 +1,208 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "WEATHER API"
+  },
+  "paths": {
+    "/weather": {
+      "get": {
+        "tags": ["CITY WEATHER"],
+        "summary": "GET WEATHER BY CITY NAME OR CITY LONGITUDE - LATITUDE",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "description": "city name",
+            "required": false,
+            "type": "string"
+          },
+                    {
+            "name": "lon",
+            "in": "query",
+            "description": "geographic coordinate longitude",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "geographic coordinate latitude",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received weather data",
+            "schema": {
+              "$ref": "#/definitions/Data"
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Invalid request, Write city name or Longitude with Latitude"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Data": {
+      "properties": {
+        "coord": {
+          "type": "object",
+          "properties": {
+            "lon": {
+              "type": "number",
+              "description": "Longitude"
+            },
+            "lat": {
+              "type": "number",
+              "description": "Latitude"
+            }
+          }
+        },
+        "weather": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID weather"
+              },
+              "main": {
+                "type": "string",
+                "description": "The main weather parameter"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the weather"
+              },
+              "icon": {
+                "type": "string",
+                "description": "Weather icon"
+              }
+            }
+          }
+        },
+        "base": {
+          "type": "string",
+          "description": "Base"
+        },
+        "main": {
+          "type": "object",
+          "properties": {
+            "temp": {
+              "type": "number",
+              "description": "Temperature"
+            },
+            "feels_like": {
+              "type": "number",
+              "description": "Feels like"
+            },
+            "temp_min": {
+              "type": "number",
+              "description": "Minimum temperature"
+            },
+            "temp_max": {
+              "type": "number",
+              "description": "Maximum temperature"
+            },
+            "pressure": {
+              "type": "integer",
+              "description": "Pressure"
+            },
+            "humidity": {
+              "type": "integer",
+              "description": "Humidity"
+            },
+            "sea_level": {
+              "type": "integer",
+              "description": "Sea level"
+            },
+            "grnd_level": {
+              "type": "integer",
+              "description": "Ground level"
+            }
+          }
+        },
+        "visibility": {
+          "type": "integer",
+          "description": "Visibility"
+        },
+        "wind": {
+          "type": "object",
+          "properties": {
+            "speed": {
+              "type": "number",
+              "description": "Wind speed"
+            },
+            "deg": {
+              "type": "integer",
+              "description": "Wind degree"
+            },
+            "gust": {
+              "type": "number",
+              "description": "Gusts of wind"
+            }
+          }
+        },
+        "clouds": {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "integer",
+              "description": "Cloudiness"
+            }
+          }
+        },
+        "dt": {
+          "type": "integer",
+          "description": "Date and time"
+        },
+        "sys": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string",
+              "description": "Country"
+            },
+            "sunrise": {
+              "type": "integer",
+              "description": "Sunrise time"
+            },
+            "sunset": {
+              "type": "integer",
+              "description": "Sunset time"
+            }
+          }
+        },
+        "timezone": {
+          "type": "integer",
+          "description": "Time zone"
+        },
+        "id": {
+          "type": "integer",
+          "description": "City ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "City name"
+        },
+        "cod": {
+          "type": "integer",
+          "description": "Status code"
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { axiosService } from "./axios.service";
 class WeatherService {
   public async getWeather(params: IQuery): Promise<IWeatherData> {
     if (params.city) {
-      const responseCity = await axiosService.getCityData(params.city, configs.API_KEY);
+      const responseCity = await axiosService.getCityGeo(params.city, configs.API_KEY);
       const { lat, lon } = responseCity.data[0];
       const responseData = await axiosService.getWeather(lat, lon, configs.API_KEY);
       return responseData.data;

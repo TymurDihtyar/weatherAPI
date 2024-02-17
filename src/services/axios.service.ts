@@ -8,7 +8,7 @@ const geoUrl = `${configs.BASE_URL}${configs.BASE_URL_GEO}`;
 const dataUrl = `${configs.BASE_URL}${configs.BASE_URL_DATA}`;
 
 const axiosService = {
-  getCityData: (q: string, appid: string): Promise<AxiosResponse<ICity>> => axios.get(geoUrl, { params: { q, appid } }),
+  getCityGeo: (q: string, appid: string): Promise<AxiosResponse<ICity>> => axios.get(geoUrl, { params: { q, appid } }),
   getWeather: (lat: number, lon: number, appid: string): Promise<AxiosResponse<IWeatherData>> => axios.get(dataUrl, { params: { lat, lon, appid } }),
 };
 
