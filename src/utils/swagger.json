@@ -11,7 +11,7 @@
         "summary": "GET WEATHER BY CITY NAME OR CITY LONGITUDE - LATITUDE",
         "parameters": [
           {
-            "name": "city",
+            "name": "q",
             "in": "query",
             "description": "city name",
             "required": false,
